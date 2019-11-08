@@ -46,12 +46,11 @@ okay so i'm going to be loping through my questions object. it's going to hit th
 */
 
 function quizTime() {
+   
 
    for (i = 0; i < questions.length - 1; i++) {
-      var questionText = questionDiv.innerHTML;
-      console.log(questionText)
-      questionText = questions[i];
-      console.log(questionText.title);
+      newQuestionText = questions[i].title;
+      questionDiv.innerHTML = newQuestionText;
 
       for (j = 0; j < 4; j++) {
          var answerButton = document.createElement("button");
@@ -59,7 +58,6 @@ function quizTime() {
          answerButton.setAttribute("data-user-choice", questions[i].choices[j]);
          answerButton.setAttribute("class", "answer-button btn btn-secondary");
          answerChoicesDiv.appendChild(answerButton);
-         console.log(answerButton)
       
       }
 
