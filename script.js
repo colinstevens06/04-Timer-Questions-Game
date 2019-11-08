@@ -5,3 +5,42 @@
 // after answering the questions, the timer stops, and that value is returned to 'score'
 // then the user enters initials, clicks submit button, and name/score are stored in the high scores section
 // the high scores section is going to append the score and resort so that the highest score is on top, so it probably appends to an object, that object is sorted based on the score key, and then it's actually displayed
+
+
+// ************ DECLARE VARIABLES HERE *************
+var score;
+var timeLeft;
+var interval;
+var totalSeconds = 75;
+
+var timerDiv = document.getElementById("timer");
+var questionBoxDiv = document.getElementById("question-box");
+var questionDiv = document.getElementById("question");
+var answerChoicesDiv = document.getElementById("answer-choices");
+var rightOrWrongDiv = document.getElementById("right-or-wrong");
+
+
+
+// ************ WRITE FUNCTIONS *************
+
+// timer
+function startTimer() {
+   var timerInterval = setInterval(function () {
+      totalSeconds--;
+      timerDiv.textContent = totalSeconds;
+
+      if (totalSeconds === 0) {
+         clearInterval(timerInterval);
+         alert("Game Over")
+         // need to put a 'game over' message here
+      };
+   }, 1000);
+}
+
+ 
+
+
+// ************ RUN FUNCTION *********
+startTimer();
+
+console.log("hi")
