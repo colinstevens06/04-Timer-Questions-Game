@@ -18,17 +18,20 @@ var questionBoxDiv = document.getElementById("question-box");
 var questionDiv = document.getElementById("question");
 var answerChoicesDiv = document.getElementById("answer-choices");
 var rightOrWrongDiv = document.getElementById("right-or-wrong");
+var startButton =  document.getElementById("start-button");
+
 
 
 
 // ************ WRITE FUNCTIONS *************
 
-// timer
+// ***** TIMER *****
+
 function startTimer() {
    var timerInterval = setInterval(function () {
       totalSeconds--;
       timerDiv.textContent = totalSeconds;
-
+      
       if (totalSeconds === 0) {
          clearInterval(timerInterval);
          alert("Game Over")
@@ -37,10 +40,12 @@ function startTimer() {
    }, 1000);
 }
 
+// ***** EVENT LISTENER FOR START BUTTON *****
+startButton.addEventListener("click", startTimer); 
+
  
 
 
 // ************ RUN FUNCTION *********
-startTimer();
 
 console.log("hi")
