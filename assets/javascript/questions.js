@@ -11,4 +11,3 @@ var questions = [
    },
  ];
 
-console.log(questions[0].choices[2])

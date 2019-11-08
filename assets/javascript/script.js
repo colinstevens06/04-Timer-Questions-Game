@@ -33,7 +33,6 @@ function startTimer() {
 
       if (totalSeconds === 0) {
          clearInterval(timerInterval);
-         alert("Game Over")
          // need to put a 'game over' message here
       };
    }, 1000);
@@ -47,32 +46,37 @@ okay so i'm going to be loping through my questions object. it's going to hit th
 
 function quizTime() {
    
-
+   
    for (i = 0; i < questions.length - 1; i++) {
       newQuestionText = questions[i].title;
       questionDiv.innerHTML = newQuestionText;
-
-      for (j = 0; j < 4; j++) {
-         var answerButton = document.createElement("button");
-         answerButton.innerHTML = questions[i].choices[j];
-         answerButton.setAttribute("data-user-choice", questions[i].choices[j]);
-         answerButton.setAttribute("class", "answer-button btn btn-secondary");
-         answerChoicesDiv.appendChild(answerButton);
       
+      for (j = 0; j < 4; j++) {
+         var answerButton = document.createElement("button"); // creating global element
+         answerButton.innerHTML = questions[i].choices[j]; // assigning text for that global element
+         answerButton.setAttribute("class", "answer-button btn btn-secondary"); // assigning class to this global element
+         answerButton.setAttribute("data-userChoice", questions[i].choices[j]); // assigning attribute for data
+         answerChoicesDiv.appendChild(answerButton); // adds the button to the page
       }
-
+            
       // var answerButtonClass = document.getElementsByClassName("answer-button");
-      // answerButtonClass.addEventListener("click", function () {
+      // console.log(answerButtonClass)
+      console.log(document.querySelectorAll(".answer-button"))
 
-      //    var userChoice = (document.querySelector(this).setAttribute("data-user-choice"));
-      //    if (userChoice === questions[i].answer) {
-      //       rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
-      //    } else {
-      //       rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
-      //       totalSeconds = totalSeconds - 15;
-      //    }
+      var answerButtonClasses = document.querySelectorAll(".answer-button");
+      debugger
+      answerButtonClasses.addEventListener("click", function () {
+         console.log(this)
+         var userChoice = document.querySelector(this).getAttribute("data-userChoice");
+         if (userChoice === questions[i].answer) {
+            rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+         } else {
+            rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+            totalSeconds = totalSeconds - 15;
+         }
+         
+      })
 
-      // })
 
    }
 
