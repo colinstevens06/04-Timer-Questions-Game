@@ -47,28 +47,34 @@ okay so i'm going to be loping through my questions object. it's going to hit th
 
 function quizTime() {
 
-   for (i = 0; i < questions.length; i++) {
-      questionBoxDiv.textContent = questions[i];
+   for (i = 0; i < questions.length - 1; i++) {
+      var questionText = questionDiv.innerHTML;
+      console.log(questionText)
+      questionText = questions[i];
+      console.log(questionText.title);
+
       for (j = 0; j < 4; j++) {
-         var answerButton = answerChoicesDiv.createElement("button");
-         answerButton.textContent = question[i].choices[j];
-         answerButton.setAttribute("data-user-choice", question[i].choice[j]);
-         answerButton.setAttribute("class", "answer-button");
+         var answerButton = document.createElement("button");
+         answerButton.innerHTML = questions[i].choices[j];
+         answerButton.setAttribute("data-user-choice", questions[i].choices[j]);
+         answerButton.setAttribute("class", "answer-button btn btn-secondary");
          answerChoicesDiv.appendChild(answerButton);
+         console.log(answerButton)
+      
       }
 
-      var answerButtonClass = document.getElementsByClassName("answer-button");
-      answerButtonClass.addEventListener("click", function () {
+      // var answerButtonClass = document.getElementsByClassName("answer-button");
+      // answerButtonClass.addEventListener("click", function () {
 
-         var userChoice = (document.querySelector(this).setAttribute("data-user-choice"));
-         if (userChoice === questions[i].answer) {
-            rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
-         } else {
-            rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
-            totalSeconds = totalSeconds - 15;
-         }
+      //    var userChoice = (document.querySelector(this).setAttribute("data-user-choice"));
+      //    if (userChoice === questions[i].answer) {
+      //       rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+      //    } else {
+      //       rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+      //       totalSeconds = totalSeconds - 15;
+      //    }
 
-      }
+      // })
 
    }
 
@@ -79,7 +85,10 @@ function quizTime() {
 
 
 // ***** EVENT LISTENER FOR START BUTTON *****
-startButton.addEventListener("click", startTimer);
+startButton.addEventListener("click", function () {
+   startTimer()
+   quizTime()
+});
 
 
 
