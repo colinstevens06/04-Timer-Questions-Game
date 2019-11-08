@@ -64,7 +64,6 @@ function quizTime() {
       console.log(document.querySelectorAll(".answer-button"))
 
       var answerButtonClasses = document.querySelectorAll(".answer-button");
-      debugger
       answerButtonClasses.addEventListener("click", function () {
          console.log(this)
          var userChoice = document.querySelector(this).getAttribute("data-userChoice");
