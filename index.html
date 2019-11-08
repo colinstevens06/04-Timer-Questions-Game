@@ -7,6 +7,7 @@
    <meta http-equiv="X-UA-Compatible" content="ie=edge">
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="./assets/css/style.css">
 
 
    <!-- SEO FIELDS -->
@@ -15,22 +16,31 @@
 </head>
 
 <body>
-   <!-- this row is for the top bar which contains the 'view high scores' and 'time' sections -->
-   <div class="row">
-      <div class="col-md-6">View High Scores</div>
-      <div class="col-md-6" id="timer"></div>
-   </div>
+   <div class="container-fluid">
+      <!-- this row is for the top bar which contains the 'view high scores' and 'time' sections -->
+      <div class="row top-bar mt-2">
+         <div class="col-md-6">
+            <div class="high-scores">View High Scores</div>
+         </div>
 
+
+         <div class="col-md-6">
+            <div class="timer text-right" id="timer">75</div>
+         </div>
+      </div>
+   </div>
    <!-- this is my main container -->
-   <div class="container">
+   <div class="container mt-5 px-5">
       <div class="row">
-         <div id="question-box">
-            <div class="h1" id="question">Are you ready to begin?
-            </div>
-            <div id="answer-choices">
-            </div>
-            <div id="right-or-wrong">
-               <button class="btn nav-pills" id="start-quiz">Start</button>
+         <div class="col">
+            <div id="question-box">
+               <div class="h1 text-center" id="question">Are you ready to begin?
+               </div>
+               <div id="answer-choices">
+               </div>
+               <div id="right-or-wrong">
+                  <button class="btn btn-primary" id="start-quiz">Start</button>
+               </div>
             </div>
          </div>
       </div>
