@@ -5,7 +5,7 @@ var questions = [
       answer: "Tom Delonge"
    },
    {
-      title: "Which song is by Green Day",
+      title: "Which song is by Green Day?",
       choices: ["Dookie", "Dammit", "Don't Let Go", "Disenchanted Lullaby"],
       answer: "Dookie"
    },

@@ -5,19 +5,34 @@ html, body {
 }
 
 .btn-primary {
-   background-color: blueviolet;
-   border-color: blueviolet;
+   background-color: #8a2be2;
+   border-color: #8a2be2;
 }
 
+   .btn-primary:hover {
+      background-color: #c18ff0;
+   }
+   
+   .btn-secondary {
+      background-color: #dabcf6;
+      border-color: #dabcf6;
+      color: #000000;
+   }
+   
+      .btn-secondary:hover {
+         background-color: #f3e9fc;
+         color: #000000;
+      }
+   
 .timer {
    padding: 14px 16px;
-   color: blueviolet;
-   border: 1px solid blueviolet;
+   color: #8a2be2;
+   border: 1px solid #8a2be2;
 }
 
 .high-scores {
    padding: 14px 16px;
-   color: blueviolet;
-   border: 1px solid blueviolet;
+   color: #8a2be2;
+   border: 1px solid #8a2be2;
 }
 

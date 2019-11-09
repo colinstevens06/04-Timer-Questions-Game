@@ -42,6 +42,7 @@ okay so i'm going to be loping through my questions object. it's going to hit th
 */
 
 function questionOne() {
+   answerChoicesDiv.innerHTML = "";
    questionOneText = questions[0].title;
    questionDiv.innerHTML = questionOneText;
 
@@ -216,8 +217,10 @@ function quizTime() {
 // ***** EVENT LISTENER FOR START BUTTON *****
 startButton.addEventListener("click", function () {
    event.stopPropagation();
+
    startTimer()
    quizTime()
+
 });
 
 
