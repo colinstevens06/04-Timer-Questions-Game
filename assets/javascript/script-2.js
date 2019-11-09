@@ -55,19 +55,25 @@ function questionOne() {
       answerChoicesDiv.appendChild(answerButton); // adds the button to the page
    }
 
-   $(".answer-button").on("click", function () {
-      event.stopPropagation();
+   var answerButtonArray = document.querySelectorAll(".answer-button") // this creates an array
+   answerButtonArray.forEach(buttonClick)
 
-      var userChoice = ($(this).attr("data-userchoice"));
-      if (userChoice === questions[0].answer) {
-         rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
-         answerChoicesDiv.innerHTML = "";
-         questionTwo();
-      } else {
-         rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
-         totalSeconds = totalSeconds - 15;
-      }
-   })
+   function buttonClick(item) {
+      item.addEventListener("click", function () {
+         event.stopPropagation();
+
+         var userChoice = this.getAttribute("data-userchoice")
+
+         if (userChoice === questions[0].answer) {
+            rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+            answerChoicesDiv.innerHTML = "";
+            questionTwo();
+         } else {
+            rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+            totalSeconds = totalSeconds - 15;
+         }
+      })
+   }
 
 }
 
@@ -85,24 +91,13 @@ function questionTwo() {
    }
 
    var answerButtonArray = document.querySelectorAll(".answer-button") // this creates an array
-   console.log(answerButtonArray)
-   console.log(answerButtonArray[0])
-   console.log($(".answer-button"))
-
-   // use a for each, for each answer button that's clicked, take my action
    answerButtonArray.forEach(buttonClick)
 
    function buttonClick(item) {
-      // .addEventListener("click" 
       item.addEventListener("click", function () {
          event.stopPropagation();
 
-
-         var userChoice = ($(this).attr("data-userchoice"));
-         // console log THIS so you're choosing the right stuff
-
-         // this.setAttribute("data-")
-         // instead of this, try using event.target (or some variation of 'target', but trying using this first)
+         var userChoice = this.getAttribute("data-userchoice")
 
          if (userChoice === questions[1].answer) {
             rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
@@ -131,19 +126,25 @@ function questionThree() {
       answerChoicesDiv.appendChild(answerButton); // adds the button to the page
    }
 
-   $(".answer-button").on("click", function () {
-      event.stopPropagation();
+   var answerButtonArray = document.querySelectorAll(".answer-button") // this creates an array
+   answerButtonArray.forEach(buttonClick)
 
-      var userChoice = ($(this).attr("data-userchoice"));
-      if (userChoice === questions[2].answer) {
-         rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
-         answerChoicesDiv.innerHTML = "";
-         questionFour();
-      } else {
-         rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
-         totalSeconds = totalSeconds - 15;
-      }
-   })
+   function buttonClick(item) {
+      item.addEventListener("click", function () {
+         event.stopPropagation();
+
+         var userChoice = this.getAttribute("data-userchoice")
+
+         if (userChoice === questions[2].answer) {
+            rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+            answerChoicesDiv.innerHTML = "";
+            questionFour();
+         } else {
+            rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+            totalSeconds = totalSeconds - 15;
+         }
+      })
+   }
 
 }
 
@@ -158,20 +159,25 @@ function questionFour() {
       answerButton.setAttribute("data-userchoice", questions[3].choices[j]); // assigning attribute for data
       answerChoicesDiv.appendChild(answerButton); // adds the button to the page
    }
+   var answerButtonArray = document.querySelectorAll(".answer-button") // this creates an array
+   answerButtonArray.forEach(buttonClick)
 
-   $(".answer-button").on("click", function () {
-      event.stopPropagation();
+   function buttonClick(item) {
+      item.addEventListener("click", function () {
+         event.stopPropagation();
 
-      var userChoice = ($(this).attr("data-userchoice"));
-      if (userChoice === questions[3].answer) {
-         rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
-         answerChoicesDiv.innerHTML = "";
-         questionFive();
-      } else {
-         rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
-         totalSeconds = totalSeconds - 15;
-      }
-   })
+         var userChoice = this.getAttribute("data-userchoice")
+
+         if (userChoice === questions[3].answer) {
+            rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+            answerChoicesDiv.innerHTML = "";
+            questionFive();
+         } else {
+            rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+            totalSeconds = totalSeconds - 15;
+         }
+      })
+   }
 
 }
 
@@ -186,24 +192,29 @@ function questionFive() {
       answerButton.setAttribute("data-userchoice", questions[4].choices[j]); // assigning attribute for data
       answerChoicesDiv.appendChild(answerButton); // adds the button to the page
    }
+   var answerButtonArray = document.querySelectorAll(".answer-button") // this creates an array
+   answerButtonArray.forEach(buttonClick)
 
-   $(".answer-button").on("click", function () {
-      event.stopPropagation();
+   function buttonClick(item) {
+      item.addEventListener("click", function () {
+         event.stopPropagation();
 
-      var userChoice = ($(this).attr("data-userchoice"));
-      if (userChoice === questions[4].answer) {
-         rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
-         clearInterval(timerInterval);
-         score = totalSeconds;
-         answerChoicesDiv.innerHTML = "";
+         var userChoice = this.getAttribute("data-userchoice")
 
-         // run 'finalScore() function that you'll create next
-         finalScore();
-      } else {
-         rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
-         totalSeconds = totalSeconds - 15;
-      }
-   })
+         if (userChoice === questions[4].answer) {
+            rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+            clearInterval(timerInterval);
+            score = totalSeconds;
+            answerChoicesDiv.innerHTML = "";
+
+            // run 'finalScore() function that you'll create next
+            finalScore();
+         } else {
+            rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+            totalSeconds = totalSeconds - 15;
+         }
+      })
+   }
 
 }
 
