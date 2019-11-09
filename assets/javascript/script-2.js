@@ -181,32 +181,6 @@ function questionFive() {
 
 
 
-function quizTime() {
-   questionOne();
-
-   // for (var i = 0; i < (questions.length - 1); i++) {
-   //    newQuestionText = questions[i].title;
-   //    questionDiv.innerHTML = newQuestionText;
-   //    console.log(questions[i]);
-
-   //    for (var j = 0; j < 4; j++) {
-   //       var answerButton = document.createElement("div"); // creating global element
-   //       answerButton.innerHTML = questions[i].choices[j]; // assigning text for that global element
-   //       answerButton.setAttribute("class", "answer-button btn btn-secondary mr-3 mb-2"); // assigning class to this global element
-   //       answerButton.setAttribute("data-userchoice", questions[i].choices[j]); // assigning attribute for data
-   //       answerChoicesDiv.appendChild(answerButton); // adds the button to the page
-   //    }
-
-   // var answerButtonClass = document.getElementsByClassName("answer-button");
-   // console.log(answerButtonClass)
-
-   // var answerButtonClasses = document.getElementsByClassName("answer-button");
-   // console.log(answerButtonClasses)
-   // answerButtonClasses.addEventListener("click", function () {
-
-
-
-}
 
 
 
@@ -219,7 +193,7 @@ startButton.addEventListener("click", function () {
    event.stopPropagation();
 
    startTimer()
-   quizTime()
+   questionOne()
 
 });
 
