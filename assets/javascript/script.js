@@ -45,35 +45,41 @@ okay so i'm going to be loping through my questions object. it's going to hit th
 */
 
 function quizTime() {
-   
-   
-   for (i = 0; i < questions.length - 1; i++) {
+
+
+   for (var i = 0; i < (questions.length - 1); i++) {
       newQuestionText = questions[i].title;
       questionDiv.innerHTML = newQuestionText;
-      
-      for (j = 0; j < 4; j++) {
-         var answerButton = document.createElement("button"); // creating global element
+      console.log(questions[i]);
+
+      for (var j = 0; j < 4; j++) {
+         var answerButton = document.createElement("div"); // creating global element
          answerButton.innerHTML = questions[i].choices[j]; // assigning text for that global element
-         answerButton.setAttribute("class", "answer-button btn btn-secondary"); // assigning class to this global element
-         answerButton.setAttribute("data-userChoice", questions[i].choices[j]); // assigning attribute for data
+         answerButton.setAttribute("class", "answer-button btn btn-secondary mr-3 mb-2"); // assigning class to this global element
+         answerButton.setAttribute("data-userchoice", questions[i].choices[j]); // assigning attribute for data
          answerChoicesDiv.appendChild(answerButton); // adds the button to the page
       }
-            
+
       // var answerButtonClass = document.getElementsByClassName("answer-button");
       // console.log(answerButtonClass)
-      console.log(document.querySelectorAll(".answer-button"))
 
-      var answerButtonClasses = document.querySelectorAll(".answer-button");
-      answerButtonClasses.addEventListener("click", function () {
-         console.log(this)
-         var userChoice = document.querySelector(this).getAttribute("data-userChoice");
+      // var answerButtonClasses = document.getElementsByClassName("answer-button");
+      // console.log(answerButtonClasses)
+      // answerButtonClasses.addEventListener("click", function () {
+      console.log(questions[i]);
+      $(".answer-button").on("click", function () {
+         event.stopPropagation();
+
+         console.log(questions[i]);
+         var userChoice = ($(this).attr("data-userchoice"));
          if (userChoice === questions[i].answer) {
             rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
          } else {
             rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
             totalSeconds = totalSeconds - 15;
          }
-         
+         console.log(userChoice)
+         console.log(questions[i].answer)
       })
 
 
@@ -87,6 +93,7 @@ function quizTime() {
 
 // ***** EVENT LISTENER FOR START BUTTON *****
 startButton.addEventListener("click", function () {
+   event.stopPropagation();
    startTimer()
    quizTime()
 });
