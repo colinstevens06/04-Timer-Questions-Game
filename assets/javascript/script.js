@@ -71,7 +71,7 @@ function quizTime() {
          event.stopPropagation();
 
          console.log(questions[i]);
-         var userChoice = ($(this).attr("data-userchoice"));
+         var userChoice = ($(this).attr("data-userchoice")); // try craeating a variable a level up and defining that as 'this' so that you can call it here. it's the levels theory - if you refer to this a level down then your shit ain't gonna work
          if (userChoice === questions[i].answer) {
             rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
          } else {

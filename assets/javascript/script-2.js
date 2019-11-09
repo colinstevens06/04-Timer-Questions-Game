@@ -8,7 +8,7 @@
 
 
 // ************ DECLARE VARIABLES HERE *************
-var score;
+var score = "";
 var timeLeft;
 var interval;
 var totalSeconds = 75;
@@ -19,12 +19,13 @@ var questionDiv = document.getElementById("question");
 var answerChoicesDiv = document.getElementById("answer-choices");
 var rightOrWrongDiv = document.getElementById("right-or-wrong");
 var startButton = document.getElementById("start-button");
+var timerInterval;
 
 // ************ WRITE FUNCTIONS ************
 
 // ***** TIMER *****
 function startTimer() {
-   var timerInterval = setInterval(function () {
+   timerInterval = setInterval(function () {
       totalSeconds--;
       timerDiv.textContent = totalSeconds;
 
@@ -81,17 +82,38 @@ function questionTwo() {
       answerButton.setAttribute("data-userchoice", questions[1].choices[j]); // assigning attribute for data
       answerChoicesDiv.appendChild(answerButton); // adds the button to the page
 
-      $(".answer-button").on("click", function () {
+   }
+
+   var answerButtonArray = document.querySelectorAll(".answer-button") // this creates an array
+   console.log(answerButtonArray)
+   console.log(answerButtonArray[0])
+   console.log($(".answer-button"))
+
+   // use a for each, for each answer button that's clicked, take my action
+   answerButtonArray.forEach(buttonClick)
+
+   function buttonClick(item) {
+      // .addEventListener("click" 
+      item.addEventListener("click", function () {
          event.stopPropagation();
 
+
          var userChoice = ($(this).attr("data-userchoice"));
+         // console log THIS so you're choosing the right stuff
+
+         // this.setAttribute("data-")
+         // instead of this, try using event.target (or some variation of 'target', but trying using this first)
+
          if (userChoice === questions[1].answer) {
             rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
             answerChoicesDiv.innerHTML = "";
             questionThree();
          } else {
+            console.log('wrong');
             rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
+            console.log(totalSeconds)
             totalSeconds = totalSeconds - 15;
+            console.log(totalSeconds)
          }
       })
    }
@@ -171,11 +193,23 @@ function questionFive() {
       var userChoice = ($(this).attr("data-userchoice"));
       if (userChoice === questions[4].answer) {
          rightOrWrongDiv.innerHTML = "<hr><p>Correct</p>";
+         clearInterval(timerInterval);
+         score = totalSeconds;
+         answerChoicesDiv.innerHTML = "";
+
+         // run 'finalScore() function that you'll create next
+         finalScore();
       } else {
          rightOrWrongDiv.innerHTML = "<hr><p>Wrong</p>";
          totalSeconds = totalSeconds - 15;
       }
    })
+
+}
+
+function finalScore() {
+   questionDiv.innerHTML = "All done!";
+   answerChoicesDiv.innerHTML = "Your final score is " + score;
 
 }
 
