@@ -20,7 +20,10 @@ var answerChoicesDiv = document.getElementById("answer-choices");
 var rightOrWrongDiv = document.getElementById("right-or-wrong");
 var startButton = document.getElementById("start-button");
 var highScoreForm = document.getElementById("high-score-form");
+var submitButton = document.getElementById("submit-button");
 var timerInterval;
+var initialsValue = "";
+
 
 // ************ WRITE FUNCTIONS ************
 
@@ -225,7 +228,23 @@ function finalScore() {
    answerChoicesDiv.innerHTML = "Your final score is " + score;
    highScoreForm.setAttribute("class", "block")
 
-   
+   submitButton.addEventListener("click", function () {
+
+      initialsValue = document.getElementById("initials").value;
+      console.log(initialsValue);
+
+      localStorage.setItem("initials", initialsValue);
+      localStorage.setItem("score", score);
+
+   })
+
+
+
+   // storing it locally
+   // localStorage.setItem("initals", 
+
+
+
 }
 
 
