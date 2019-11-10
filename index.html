@@ -25,7 +25,7 @@
 
 
          <div class="col-md-6">
-            <div class="timer text-right" id="timer">Time left: 75</div>
+            <div class="timer rounded-pill text-center" id="timer">Time left: 75</div>
          </div>
       </div>
    </div>
@@ -33,26 +33,35 @@
    <div class="container mt-5 px-5">
       <div class="row">
          <div class="col">
-            <div id="question-box">
+            <div id="startScreen">
                <div class="h1 text-center" id="question">Are you ready to begin?
                </div>
-               <div class="text-center mt-4" id="answer-choices">
+               <div class="text-center mt-4">
                   <p class="mx-5">Be prepared to answer five questions about modern rock music. If you get an answer
-                     correct, you'll go on to the next questions. Should you answer incorrectly, you'll lose 15 seconds. Your score equals the amount of time left on your timer. Good luck.</p>
+                     correct, you'll go on to the next questions. Should you answer incorrectly, you'll lose 15 seconds.
+                     Your score equals the amount of time left on your timer. Good luck.</p>
                   <br>
                   <button class="btn btn-primary mx-auto" id="start-button">Start</button>
                </div>
-               <form class="d-none" id='high-score-form'>
-                  <div class="form-group">
-                     <label for="initials">Your Initials</label>
-                     <input type="text" class="form-control" id="initials" aria-describedby="initials"
-                        placeholder="Enter initials here for high score list">
-                        <button class="btn btn-primary mt-3" id="submit-button">Submit</button>
-                  </div>
-               </form>
+            </div>
 
-               <div id="right-or-wrong">
+
+            <div style="display: none" id="question-box"></div>
+            <div style="display: none"  class="text-center mt-4" id="answer-box"></div>
+            <div style="display: none"  class="text-center mt-4" id="right-or-wrong"></div>
+
+
+
+            <form class="d-none" id='high-score-form'>
+               <div class="form-group">
+                  <label for="initials">Your Initials</label>
+                  <input type="text" class="form-control" id="initials" aria-describedby="initials"
+                     placeholder="Enter initials here for high score list">
+                  <button class="btn btn-primary mt-3" id="submit-button">Submit</button>
                </div>
+            </form>
+
+            <div id="right-or-wrong">
             </div>
          </div>
       </div>
@@ -66,7 +75,7 @@
    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
       crossorigin="anonymous"></script>
    <script src="./assets//javascript/questions.js"></script>
-   <script src="./assets/javascript/script-2.js"></script>
+   <script src="./assets/javascript/script-3.js"></script>
 </body>
 
 </html>
