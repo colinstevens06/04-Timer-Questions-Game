@@ -28,8 +28,9 @@ html, body {
    padding: 14px 16px;
    color: #8a2be2;
    border: 1px solid #8a2be2;
-   width: 125px;
+   width: 135px;
    float: right;
+   text-align: center;
 }
 
 .high-scores {
