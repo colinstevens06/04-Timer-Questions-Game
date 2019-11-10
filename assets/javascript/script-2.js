@@ -42,6 +42,8 @@ function startTimer() {
    }, 1000);
 }
 
+highScores();
+
 // ***** QUESTIONS/QUIZ *****
 // ** PSEUDO CODE FOR QUESTIONS/QUIS **
 /*
@@ -262,43 +264,43 @@ function finalScore() {
 
 
 
-function renderHighScores() {
-   // questionDiv.innerHTML = "High Scores"; this line will populate the h1 but right now i'm concerned with displayed local data
+// function renderHighScores() {
+//    // questionDiv.innerHTML = "High Scores"; this line will populate the h1 but right now i'm concerned with displayed local data
 
-   answerChoicesDiv.innerHTML = "";
+//    answerChoicesDiv.innerHTML = "";
 
 
-   for (var i = 0; i < highScoresObject.length; i++) {
+//    for (var i = 0; i < highScoresObject.length; i++) {
 
-      var highScoreInitials = highScoresObject[i]; // equivilant of var todo = todos[i];
-      var highScoreNumber = score;
+//       var highScoreInitials = highScoresObject[i]; // equivilant of var todo = todos[i];
+//       var highScoreNumber = score;
 
-      var highScoreText = document.createElement("div");
-      highScoreText.textContent = highScoreInitials + ": " + highScoreNumber;
+//       var highScoreText = document.createElement("div");
+//       highScoreText.textContent = highScoreInitials + ": " + highScoreNumber;
 
-      answerChoicesDiv.appendChild(highScoreText);
+//       answerChoicesDiv.appendChild(highScoreText);
 
-   }
+//    }
 
-}
+// }
 
 function highScores() {
    // Get stored high scores from localStorage
    // Parsing the JSON string to an object
-   var storedScores = JSON.parse(localStorage.getItem("initials"));
+   var storedScores = JSON.parse(localStorage.getItem("highScoresObject"));
 
    // if scores were retrieved from locale storeage, update the array to it
    if (storedScores !== null) {
       highScoresObject = storedScores;
    }
 
-   renderHighScores()
+   // renderHighScores()
 
 }
 
 function storedHighScores() {
    // Stringify and set "highScores" key in localStorage to array
-   localStorage.setItem("initials", JSON.stringify(highScoresObject));
+   localStorage.setItem("highScoresObject", JSON.stringify(highScoresObject));
 }
 
 
@@ -317,11 +319,16 @@ submitButton.addEventListener("click", function(event) {
    }
 
 highScoresObject.push(thisHighScore);
+console.log(thisHighScore)
+console.log(highScoresObject)
 
 
    // store updated todos in localstorage re-render the list
+   storedHighScores();
    highScores();
-   renderHighScores();
+
+   console.log(highScores)
+   // renderHighScores();
 
 })
 
