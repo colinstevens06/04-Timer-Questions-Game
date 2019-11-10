@@ -28,11 +28,12 @@ html, body {
    padding: 14px 16px;
    color: #8a2be2;
    border: 1px solid #8a2be2;
+   width: 125px;
+   float: right;
 }
 
 .high-scores {
    padding: 14px 16px;
    color: #8a2be2;
-   border: 1px solid #8a2be2;
 }
 

@@ -33,7 +33,7 @@ var initialsValue = "";
 function startTimer() {
    timerInterval = setInterval(function () {
       totalSeconds--;
-      timerDiv.textContent = totalSeconds;
+      timerDiv.textContent = "Time left: " + totalSeconds;
 
       if (totalSeconds === 0) {
          clearInterval(timerInterval);

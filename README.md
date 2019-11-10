@@ -32,4 +32,5 @@ This part still trips me up. I need to go back and redo this activities again. I
 
 What I did gain big time from the local storage was troubleshooting points. I went through a few variations of this before I settled. and I hit some troubleshooting points that i recognized from previous mistakes and was able to fix it. like naming a variable and a function the same thing. I did it again, but quickly noticed the error while debugging. i spent a lot of time debugging this section with debugger and console.log. learned a lot through the process
 
-##
+## Screenshots
+
