@@ -11,7 +11,9 @@
 var score = "";
 var timeLeft;
 var interval;
+var highScoresObject = [];
 var totalSeconds = 75;
+var thisHighScore = "";
 
 var timerDiv = document.getElementById("timer");
 var questionBoxDiv = document.getElementById("question-box");
@@ -45,6 +47,8 @@ function startTimer() {
 /*
 okay so i'm going to be loping through my questions object. it's going to hit the first loop, and you only get 15 seconds to answer the question, so some timer will have to start, it's going to pull the questions[i].title and place it in the div that contains the the questions, then it's going to create 4 buttons, and each button is going to contain a question questions[i].choices[1-4], per the GIF provided as an example, clicking a button take the user to the next question. if the answer is correct, give message for correct. if answer is wrong, give message for wrong and deduct 15 seconds from the timer. when last question is answered, display the score and store it (seperate code for all that)
 */
+
+
 
 function questionOne() {
    answerChoicesDiv.innerHTML = "";
@@ -228,25 +232,98 @@ function finalScore() {
    answerChoicesDiv.innerHTML = "Your final score is " + score;
    highScoreForm.setAttribute("class", "block")
 
-   submitButton.addEventListener("click", function () {
+      // initialsValue = document.getElementById("initials").value;
+      // console.log(initialsValue);
 
-      initialsValue = document.getElementById("initials").value;
-      console.log(initialsValue);
+      // storeHighScores();
 
-      localStorage.setItem("initials", initialsValue);
-      localStorage.setItem("score", score);
+      // function storeHighScores() {
+      //    var initialsParse = [];
+      //    var initialsParse = JSON.parse(localStorage.getItem("initials"));
+      //    initialsParse.push(initialsValue);
+      //    localStorage.setItem("initials", JSON.stringify(initialsParse));
+      
+      //    var scoreValueLocal = initialsValue
+      //    var scoreParse = JSON.parse(localStorage.getItem("score")) || [];
+      //    scoreParse.push(scoreValueLocal);
+      //    localStorage.setItem("score", JSON.stringify(scoreParse));
+      
+      // }
 
-   })
+      // localStorage.setItem("initials", initialsValue);
+      // localStorage.setItem("score", score);
 
 
-
+   
    // storing it locally
    // localStorage.setItem("initals", 
 
+}
 
+
+
+function renderHighScores() {
+   // questionDiv.innerHTML = "High Scores"; this line will populate the h1 but right now i'm concerned with displayed local data
+
+   answerChoicesDiv.innerHTML = "";
+
+
+   for (var i = 0; i < highScoresObject.length; i++) {
+
+      var highScoreInitials = highScoresObject[i]; // equivilant of var todo = todos[i];
+      var highScoreNumber = score;
+
+      var highScoreText = document.createElement("div");
+      highScoreText.textContent = highScoreInitials + ": " + highScoreNumber;
+
+      answerChoicesDiv.appendChild(highScoreText);
+
+   }
 
 }
 
+function highScores() {
+   // Get stored high scores from localStorage
+   // Parsing the JSON string to an object
+   var storedScores = JSON.parse(localStorage.getItem("initials"));
+
+   // if scores were retrieved from locale storeage, update the array to it
+   if (storedScores !== null) {
+      highScoresObject = storedScores;
+   }
+
+   renderHighScores()
+
+}
+
+function storedHighScores() {
+   // Stringify and set "highScores" key in localStorage to array
+   localStorage.setItem("initials", JSON.stringify(highScoresObject));
+}
+
+
+
+submitButton.addEventListener("click", function(event) {
+   event.preventDefault();
+
+   var initialsValue = document.getElementById("initials").value.trim();
+
+   thisHighScore = initialsValue + ": " + score;
+   console.log(thisHighScore);
+
+
+   if (thisHighScore === "") {
+      return;
+   }
+
+highScoresObject.push(thisHighScore);
+
+
+   // store updated todos in localstorage re-render the list
+   highScores();
+   renderHighScores();
+
+})
 
 
 
