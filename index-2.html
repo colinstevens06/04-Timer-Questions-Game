@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="./assets/css/style.css">
+
+
+   <!-- SEO FIELDS -->
+
+   <title>Timed Quiz | Colin Stevens | Web Development Portfolio</title>
+</head>
+
+<body>
+   <div class="container">
+      <!-- this row is for the top bar which contains the 'view high scores' and 'time' sections -->
+      <div class="row top-bar mt-2">
+         <div class="col-md-6">
+            <div class="high-scores">View High Scores</div>
+         </div>
+
+
+         <div class="col-md-6">
+            <div class="timer rounded-pill text-center" id="timer">Time left: 75</div>
+         </div>
+      </div>
+   </div>
+   <!-- this is my main container -->
+   <div class="container mt-5 px-5">
+      <div class="row">
+         <div class="col">
+            <div id="startScreen">
+               <div class="h1 text-center" id="question">Are you ready to begin?
+               </div>
+               <div class="text-center mt-4">
+                  <p class="mx-5">Be prepared to answer five questions about modern rock music. If you get an answer
+                     correct, you'll go on to the next questions. Should you answer incorrectly, you'll lose 15 seconds.
+                     Your score equals the amount of time left on your timer. Good luck.</p>
+                  <br>
+                  <button class="btn btn-primary mx-auto" id="start-button">Start</button>
+               </div>
+            </div>
+
+
+            <div style="display: none" id="question-box"></div>
+            <div style="display: none"  class="text-center mt-4" id="answer-box"></div>
+            <div style="display: none"  class="text-center mt-4" id="right-or-wrong"></div>
+
+
+
+            <form class="d-none" id='high-score-form'>
+               <div class="form-group">
+                  <label for="initials">Your Initials</label>
+                  <input type="text" class="form-control" id="initials" aria-describedby="initials"
+                     placeholder="Enter initials here for high score list">
+                  <button class="btn btn-primary mt-3" id="submit-button">Submit</button>
+               </div>
+            </form>
+
+            <div id="right-or-wrong">
+            </div>
+         </div>
+      </div>
+
+   </div>
+
+
+
+
+
+   <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"></script>
+   <script src="./assets//javascript/questions.js"></script>
+   <script src="./assets/javascript/script-3.js"></script>
+</body>
+
+</html>
