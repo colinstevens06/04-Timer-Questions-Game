@@ -19,6 +19,7 @@ var questionDiv = document.getElementById("question");
 var answerChoicesDiv = document.getElementById("answer-choices");
 var rightOrWrongDiv = document.getElementById("right-or-wrong");
 var startButton = document.getElementById("start-button");
+var highScoreForm = document.getElementById("high-score-form");
 var timerInterval;
 
 // ************ WRITE FUNCTIONS ************
@@ -219,9 +220,12 @@ function questionFive() {
 }
 
 function finalScore() {
+   rightOrWrongDiv.innerHTML = "";
    questionDiv.innerHTML = "All done!";
    answerChoicesDiv.innerHTML = "Your final score is " + score;
+   highScoreForm.setAttribute("class", "block")
 
+   
 }
 
 
