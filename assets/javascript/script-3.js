@@ -89,6 +89,7 @@ function generateQuestion() {
    }
 
    startScreenDiv.style.display = "none";
+   highScoreForm.style.display = 'none';
    questionDiv.style.display = "block";
    answerChoicesDiv.style.display = "block";
 
@@ -99,12 +100,12 @@ function finalScore() {
    rightOrWrongDiv.innerHTML = "";
    questionDiv.innerHTML = "All done!";
    answerChoicesDiv.innerHTML = "Your final score is " + score;
-   highScoreForm.setAttribute("class", "block")
+   highScoreForm.style.display = "block"
 }
 
 // ***** MAIN MENU FUNCTION *****
 
-function goToMainMenu () {
+function goToMainMenu() {
    event.preventDefault();
    highScoresContainer.style.display = "none";
    startScreenDiv.style.display = "block";
@@ -128,9 +129,8 @@ function highScores() {
       var highScoreText = document.createElement("div");
       highScoreText.textContent = highScoresObject[i];
       highScoresListDiv.appendChild(highScoreText);
-      
+
    }
-   
 }
 
 function storedHighScores() {
@@ -171,5 +171,7 @@ function highScoreClick() {
    startScreenDiv.style.display = "none";
    questionDiv.style.display = "none";
    answerChoicesDiv.style.display = "none";
+   highScoreForm.style.display = 'none';
+
 
 }
