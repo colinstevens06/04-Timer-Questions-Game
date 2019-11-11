@@ -20,7 +20,7 @@
       <!-- this row is for the top bar which contains the 'view high scores' and 'time' sections -->
       <div class="row top-bar mt-3">
          <div class="col-md-6">
-            <div class="high-scores">View High Scores</div>
+            <div class="high-scores"><button class="btn btn-primary" id="high-scores">View High Scores</button></div>
          </div>
 
 
@@ -47,8 +47,8 @@
 
 
             <div style="display: none" class="text-center" id="question-box"></div>
-            <div style="display: none"  class="text-center mt-4" id="answer-box"></div>
-            <div style="display: none"  class="text-center mt-4" id="right-or-wrong"></div>
+            <div style="display: none" class="text-center mt-4" id="answer-box"></div>
+            <div style="display: none" class="text-center mt-4" id="right-or-wrong"></div>
 
 
 
@@ -61,7 +61,12 @@
                </div>
             </form>
 
-            <div id="right-or-wrong">
+            <div id='high-score-container' style="display: none">
+               <div class="h1 text-center" id="high-scores-header"></div>
+               <div class="text-center mt-4" id="high-scores-list"></div>
+               <div class="text-center mt-4">
+                  <button class="btn btn-primary mx-auto" id="main-menu">Main Menu</button>
+               </div>
             </div>
          </div>
       </div>

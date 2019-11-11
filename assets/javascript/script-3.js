@@ -15,6 +15,11 @@ var questionTitle = document.createElement("h1");
 var rightOrWrongDiv = document.getElementById("right-or-wrong")
 var highScoreForm = document.getElementById("high-score-form")
 var submitButton = document.getElementById("submit-button")
+var highScoresButton = document.getElementById("high-scores")
+var highScoresContainer = document.getElementById("high-score-container")
+var highScoresHeaderDiv = document.getElementById('high-scores-header')
+var highScoresListDiv = document.getElementById('high-scores-list')
+var mainMenuButton = document.getElementById("main-menu")
 
 highScores();
 
@@ -30,10 +35,13 @@ function startTimer() {
    }, 1000);
 }
 
+highScoresButton.addEventListener("click", highScoreClick)
 startButton.addEventListener("click", generateQuestion);
 startButton.addEventListener("click", startTimer);
+mainMenuButton.addEventListener("click", goToMainMenu);
 
 function generateQuestion() {
+   event.preventDefault();
 
    questionDiv.innerHTML = "";
 
@@ -44,10 +52,7 @@ function generateQuestion() {
       return;
    }
 
-   console.log(questions[currentQuestion].title)
    questionTitle.textContent = questions[currentQuestion].title;
-   console.log(questionTitle)
-
    questionDiv.appendChild(questionTitle);
 
    for (var j = 0; j < 4; j++) {
@@ -89,12 +94,22 @@ function generateQuestion() {
 
 }
 
-// ***** FINAL SCORE FUNCTION
+// ***** FINAL SCORE FUNCTION *****
 function finalScore() {
    rightOrWrongDiv.innerHTML = "";
    questionDiv.innerHTML = "All done!";
    answerChoicesDiv.innerHTML = "Your final score is " + score;
    highScoreForm.setAttribute("class", "block")
+}
+
+// ***** MAIN MENU FUNCTION *****
+
+function goToMainMenu () {
+   event.preventDefault();
+   highScoresContainer.style.display = "none";
+   startScreenDiv.style.display = "block";
+   questionDiv.style.display = "none";
+   answerChoicesDiv.style.display = "none";
 }
 
 // ************ STORING DATA LOCALLY HERE ************
@@ -108,8 +123,14 @@ function highScores() {
       highScoresObject = storedScores;
    }
 
-   // renderHighScores()
-
+   highScoresHeaderDiv.innerHTML = "High Scores";
+   for (var i = 0; i < highScoresObject.length; i++) {
+      var highScoreText = document.createElement("div");
+      highScoreText.textContent = highScoresObject[i];
+      highScoresListDiv.appendChild(highScoreText);
+      
+   }
+   
 }
 
 function storedHighScores() {
@@ -117,7 +138,7 @@ function storedHighScores() {
    localStorage.setItem("highScoresObject", JSON.stringify(highScoresObject));
 }
 
-submitButton.addEventListener("click", function(event) {
+submitButton.addEventListener("click", function (event) {
    event.preventDefault();
 
    var initialsValue = document.getElementById("initials").value.trim();
@@ -130,9 +151,9 @@ submitButton.addEventListener("click", function(event) {
       return;
    }
 
-highScoresObject.push(thisHighScore);
-console.log(thisHighScore)
-console.log(highScoresObject)
+   highScoresObject.push(thisHighScore);
+   console.log(thisHighScore)
+   console.log(highScoresObject)
 
 
    // store updated todos in localstorage re-render the list
@@ -141,5 +162,14 @@ console.log(highScoresObject)
 
    console.log(highScores)
    // renderHighScores();
-   
+
 })
+
+function highScoreClick() {
+   event.preventDefault();
+   highScoresContainer.style.display = "block";
+   startScreenDiv.style.display = "none";
+   questionDiv.style.display = "none";
+   answerChoicesDiv.style.display = "none";
+
+}
